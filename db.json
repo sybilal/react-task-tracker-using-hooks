@@ -17,12 +17,6 @@
       "day": "2021-02-11T15:21",
       "reminder": true,
       "id": 3
-    },
-    {
-      "text": "Exercise",
-      "day": "2021-02-10T06:52",
-      "reminder": true,
-      "id": 4
     }
   ]
 }
