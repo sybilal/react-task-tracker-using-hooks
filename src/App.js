@@ -3,14 +3,16 @@ import AddTask from './components/AddTask';
 import Header from './components/Header'
 import Tasks from './components/Tasks'
 
-const defaultTasks = [
-  {
-    id: 1,
-    text: 'Haircut',
-    day: '2020-12-02T04:17:04',
-    reminder: false
-  },
-];
+/*
+  const defaultTasks = [
+    {
+      id: 1,
+      text: 'Haircut',
+      day: '2020-12-02T04:17:04',
+      reminder: false
+    },
+  ];
+*/
 
 function App() {
 
@@ -26,21 +28,25 @@ function App() {
     getTasks();
   }, []);
 
+  const domain = `http://localhost:5000`;
+
   const fetchTasks = async () => {
-    const res = await fetch('http://localhost:5000/tasks');
+    const res = await fetch(`${domain}/tasks`);
     const data = await res.json();
     return data;
   }
 
   const fetchTask = async (id) => {
-    const res = await fetch(`http://localhost:5000/tasks/${id}`);
+    const res = await fetch(`${domain}/tasks/${id}`);
     const data = await res.json();
     return data;
   }
 
   //Add Task
   const addTask = async (task) => {
-    const res = await fetch('http://localhost:5000/tasks', {
+    console.log(task)
+
+    const res = await fetch(`${domain}/tasks`, {
       method: 'POST',
       headers: {
         'Content-type': 'application/json'
@@ -50,10 +56,11 @@ function App() {
 
     const data = await res.json();
     setTasks([...tasks, data]);
+
   }
   //Delete Task
   const deleteTask = async (id) => {
-    await fetch(`http://localhost:5000/tasks/${id}`, {
+    await fetch(`${domain}/tasks/${id}`, {
       method: 'DELETE',
     })
     setTasks(tasks.filter(elm => elm.id !== id));
@@ -68,7 +75,7 @@ function App() {
     const taskToToggle = await fetchTask(id);
 
     const updTask = { ...taskToToggle, reminder: !taskToToggle.reminder }
-    const res = await fetch(`http://localhost:5000/tasks/${id}`,
+    const res = await fetch(`${domain}/tasks/${id}`,
       {
         method: 'PUT',
         headers: {
@@ -90,7 +97,6 @@ function App() {
     <div className="container">
       <Header
         toggleAddTask={toggleAddTask}
-        title="Task Tracker"
         showAddTask={showAddTask}
       />
       {showAddTask ? (<AddTask onAdd={addTask} />) : ''}

@@ -10,9 +10,9 @@ const Header = ({ title, toggleAddTask, showAddTask }) => {
 }
 
 //CSS in js
-// Header.defaultProps = {
-//     title: 'Task Tracker',
-// }
+Header.defaultProps = {
+    title: 'Task Tracker',
+}
 
 Header.propTypes = {
     title: PropTypes.string.isRequired

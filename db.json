@@ -1,28 +1,28 @@
 {
   "tasks": [
     {
-      "id": 2,
-      "text": "Haircut",
-      "day": "2021-02-13T11:52",
-      "reminder": true
+      "text": "Shopping",
+      "day": "2021-02-17T10:48",
+      "reminder": true,
+      "id": 1
     },
     {
-      "text": "Shopping",
-      "day": "2021-02-12T12:09",
+      "text": "hair cut",
+      "day": "2021-02-17T10:48",
+      "reminder": true,
+      "id": 2
+    },
+    {
+      "text": "Car Wash",
+      "day": "2021-02-11T15:21",
       "reminder": true,
       "id": 3
     },
     {
-      "text": "Laundry",
-      "day": "2021-02-17T12:10",
-      "reminder": false,
-      "id": 4
-    },
-    {
-      "text": "Reach out",
-      "day": "2021-02-20T03:11",
+      "text": "Exercise",
+      "day": "2021-02-10T06:52",
       "reminder": true,
-      "id": 5
+      "id": 4
     }
   ]
 }
